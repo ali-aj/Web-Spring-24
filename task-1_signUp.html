@@ -14,7 +14,7 @@
     </head>
     <body>
 
-        <form class="my-form" method="POST">
+        <form class="my-form" id="signupform" onsubmit="event.preventDefault(); validatePassword()">
             <div class="container">
                 <div class="row d-flex justify-content-center align-items-center vh-100">
                     <div class="col-md-8">
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="lastName" class="form-label"> <b>Last Name</b> </label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName" required />
+                                    <input type="text" class="form-control" id="lastName" name="lastName" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="emailField" class="form-label"> <b>Email</b> </label>
@@ -84,5 +84,26 @@
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"
         ></script>
+
+        <script>
+            function validatePassword() {
+                var password = document.getElementById("passwordField").value;
+                var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                var alertDiv = document.createElement("div");
+                if (!re.test(password)) {
+                    alertDiv.className = "alert alert-danger";
+                    alertDiv.role = "alert";
+                    alertDiv.textContent = "Please choose a strong password!";
+                    document.body.insertBefore(alertDiv, document.body.firstChild);
+                    return false;
+                }
+                document.getElementById("signupform").reset();
+                alertDiv.className = "alert alert-success";
+                alertDiv.role = "alert";
+                alertDiv.textContent = "You have successfully Registered!";
+                document.body.insertBefore(alertDiv, document.body.firstChild);
+                return true;
+            }
+        </script>
     </body>
 </html>
