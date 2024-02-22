@@ -56,4 +56,13 @@
 
 4. **Forgotten Password:**
    - Click on the "Forget Password?" link on the Sign In page for instructions.
+  
+### Usage
+
+To use the sign-in and sign-up system:
+
+1. Clone the repository.
+2. Open `task-1_signIn.html` in a web browser.
+3. Fill out the required fields.
+4. Click the appropriate button to sign in or sign up.
 
